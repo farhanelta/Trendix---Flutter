@@ -10,6 +10,7 @@ dependencies:
   animated_splash_screen: ^1.3.0
   flutter:
     sdk: flutter
+  popover: ^0.2.9
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +19,29 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - utils/assets/Onboarding1.png
+    - utils/assets/Onboarding2.png
+    - utils/assets/Onboarding3.png
+    - utils/assets/rusia-post.png
+    - utils/assets/sweety-pfp.png
+    - utils/assets/trendix.png
+    - utils/assets/trendix-text.png
+    - utils/assets/user-pfp.png
+    - utils/assets/seal-check-fill.png
+    - utils/assets/seal-check-fill-green.png
+    - utils/assets/seal-check-fill-red.png
+    - utils/assets/james-post.png
+    - utils/assets/world-champ-newspage.png
+    - utils/assets/american-elect-newspage.png
+    - utils/assets/inter-news-newspage.png
+    - utils/assets/mark-trending.png
+    - utils/assets/premier.png
+    - utils/assets/geo-pfp.png
+    - utils/assets/geo-post.png
+    - utils/assets/mustofa-pfp.png
+    - utils/assets/50-new-post-1.png
+    - utils/assets/50-new-post-2.png
+    - utils/assets/mark-pfp-notif.png
+    - utils/assets/ahmad-pfp-notif.png
+    - utils/assets/heart-solid.png
