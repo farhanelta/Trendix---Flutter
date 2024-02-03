@@ -6,6 +6,7 @@ class ExploreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
           title: Row(
@@ -13,10 +14,17 @@ class ExploreScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                child: const Row(
-                  children: [
-                    
-                  ]
+                child: Expanded(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      fillColor: const Color(0xFFEFEFF0),
+                      filled: true,
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10)),
+                      hintText: 'Search',
+                    ),
+                  ),
                 ),
               ),
               SizedBox(

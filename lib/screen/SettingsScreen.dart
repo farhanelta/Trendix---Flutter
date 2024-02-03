@@ -7,7 +7,7 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     void LogOut() {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => LoginScreen()));
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
     }
 
     void Back() {
@@ -20,16 +20,12 @@ class SettingsScreen extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              child: InkWell(
-                child: Icon(Icons.arrow_back),
-                onTap: Back,
-              ),
+            InkWell(
+              onTap: Back,
+              child: const Icon(Icons.arrow_back),
             ),
-            Container(
-              child: Text("Settings",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
-            ),
+            const Text("Settings",
+                style: TextStyle(fontWeight: FontWeight.bold)),
             Container()
           ],
         ),
@@ -37,7 +33,7 @@ class SettingsScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 18),
+            padding: const EdgeInsets.symmetric(horizontal: 18),
             child: Column(
               children: [
                 InkWell(
@@ -48,17 +44,17 @@ class SettingsScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.notifications_outlined),
+                            const Icon(Icons.notifications_outlined),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: const Text(
                                 "Notifications",
                                 style: TextStyle(fontSize: 17),
                               ),
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined)
+                        const Icon(Icons.arrow_forward_ios_outlined)
                       ],
                     ),
                   ),
@@ -71,17 +67,17 @@ class SettingsScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.lock_outline_rounded),
+                            const Icon(Icons.lock_outline_rounded),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: const Text(
                                 "Privacy",
                                 style: TextStyle(fontSize: 17),
                               ),
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined)
+                        const Icon(Icons.arrow_forward_ios_outlined)
                       ],
                     ),
                   ),
@@ -94,17 +90,17 @@ class SettingsScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.person_outline_rounded),
+                            const Icon(Icons.person_outline_rounded),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: const Text(
                                 "Account",
                                 style: TextStyle(fontSize: 17),
                               ),
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined)
+                        const Icon(Icons.arrow_forward_ios_outlined)
                       ],
                     ),
                   ),
@@ -118,24 +114,24 @@ class SettingsScreen extends StatelessWidget {
                         Row(
                           children: [
                             Container(
-                                padding: EdgeInsets.all(3),
+                                padding: const EdgeInsets.all(3),
                                 decoration: BoxDecoration(
                                     border: Border.all(width: 1.5),
                                     borderRadius: BorderRadius.circular(900)),
-                                child: Icon(
+                                child: const Icon(
                                   Icons.question_mark_rounded,
                                   size: 15,
                                 )),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: const Text(
                                 "Asking for help",
                                 style: TextStyle(fontSize: 17),
                               ),
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined)
+                        const Icon(Icons.arrow_forward_ios_outlined)
                       ],
                     ),
                   ),
@@ -148,17 +144,17 @@ class SettingsScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.info_outline),
+                            const Icon(Icons.info_outline),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: Text(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: const Text(
                                 "About the application",
                                 style: TextStyle(fontSize: 17),
                               ),
                             )
                           ],
                         ),
-                        Icon(Icons.arrow_forward_ios_outlined)
+                        const Icon(Icons.arrow_forward_ios_outlined)
                       ],
                     ),
                   ),
@@ -174,13 +170,13 @@ class SettingsScreen extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.logout_rounded,
                                 color: Color(0xFF5DA7F0),
                               ),
                               Container(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
+                                padding: const EdgeInsets.symmetric(horizontal: 8),
+                                child: const Text(
                                   "Sign Out",
                                   style: TextStyle(
                                       fontSize: 17, color: Color(0xFF5DA7F0)),
