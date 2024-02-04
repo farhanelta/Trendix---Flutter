@@ -8,9 +8,9 @@ environment:
 
 dependencies:
   animated_splash_screen: ^1.3.0
+  popover: ^0.2.9
   flutter:
     sdk: flutter
-  popover: ^0.2.9
 
 dev_dependencies:
   flutter_test:
@@ -45,3 +45,4 @@ flutter:
     - utils/assets/mark-pfp-notif.png
     - utils/assets/ahmad-pfp-notif.png
     - utils/assets/heart-solid.png
+    - utils/assets/seal-check-fill-white.png

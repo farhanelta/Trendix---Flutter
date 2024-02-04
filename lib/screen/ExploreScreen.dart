@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ExploreScreen extends StatelessWidget {
-  const ExploreScreen({super.key});
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({Key? key}) : super(key: key);
+
+  @override
+  _MainPage createState() => _MainPage();
+}
+
+class _MainPage extends State<ExploreScreen> {
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -9,13 +16,16 @@ class ExploreScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                child: Expanded(
+          title: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  height: 35,
+                  width: 320,
                   child: TextFormField(
+                    textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
                       fillColor: const Color(0xFFEFEFF0),
                       filled: true,
@@ -23,39 +33,50 @@ class ExploreScreen extends StatelessWidget {
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(10)),
                       hintText: 'Search',
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 36,
-                height: 38,
-                child: Stack(children: [
-                  const Positioned(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image(image: AssetImage("utils/assets/user-pfp.png")),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    left: 22,
-                    top: 26,
-                    child: Container(
-                      width: 12,
-                      height: 12,
-                      decoration: const ShapeDecoration(
-                        color: Color(0xFF57BA5D),
-                        shape: CircleBorder(),
+                      hintStyle: TextStyle(fontSize: 16),
+                      prefixIcon: Icon(Icons.search,
+                          color: Color(0xFF3C3C43), size: 17),
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          // Handle the microphone icon click
+                          print('Microphone icon clicked');
+                        },
+                        child:
+                            Icon(Icons.mic, color: Color(0xFF3C3C43), size: 17),
                       ),
                     ),
                   ),
-                ]),
-              )
-            ],
+                ),
+                SizedBox(
+                  width: 36,
+                  height: 38,
+                  child: Stack(children: [
+                    const Positioned(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image(image: AssetImage("utils/assets/user-pfp.png")),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      left: 22,
+                      top: 26,
+                      child: Container(
+                        width: 12,
+                        height: 12,
+                        decoration: const ShapeDecoration(
+                          color: Color(0xFF57BA5D),
+                          shape: CircleBorder(),
+                        ),
+                      ),
+                    ),
+                  ]),
+                )
+              ],
+            ),
           ),
         ),
         body: SingleChildScrollView(
@@ -144,34 +165,302 @@ class ExploreScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 9),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 7),
-                            child: InkWell(
-                              child: Image(
-                                  image: AssetImage(
-                                      "utils/assets/mark-trending.png")),
+                Container(
+                  height: 350,
+                  child: PageView.builder(
+                    itemCount: 5,
+                    controller: PageController(viewportFraction: 0.9),
+                    onPageChanged: (index) => setState(() => _index = index),
+                    itemBuilder: (context, index) {
+                      return AnimatedPadding(
+                          duration: const Duration(milliseconds: 400),
+                          curve: Curves.fastOutSlowIn,
+                          padding: EdgeInsets.all(_index == index ? 0.0 : 8.0),
+                          child: Card(
+                            shadowColor: Colors.transparent,
+                            color: Colors.transparent,
+                            elevation: 4,
+                            child: Center(
+                              child: Container(
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 16,
+                                            right: 16,
+                                            top: 16,
+                                            bottom: 85),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  "@Sweetyweber",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4),
+                                                  child: Image(
+                                                      image: AssetImage(
+                                                          "utils/assets/seal-check-fill-white.png")),
+                                                )
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text("7h Ago", style: TextStyle(color: Colors.white),),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 4),
+                                                  child: Icon(Icons.more_horiz_rounded, color: Colors.white,),
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                                        child: Column(
+                                          children: [
+                                            Text("The Metaverse, Zuckerberg's tech obession, is officially dead. ChatGPT killed it.", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 17),),
+                                            Padding(
+                                              padding: const EdgeInsets.only(top: 8),
+                                              child: Text("The Metaverse, the once-buzzy technology that promised to allow users to hang out awkwardly in a disorientati...", style: TextStyle(color: Colors.white, fontSize: 15),),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(top: 16),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Padding(
+                                                        padding: const EdgeInsets.only(
+                                                            right: 4 * 100 / 100),
+                                                        child: InkWell(
+                                                            child: Container(
+                                                              decoration: BoxDecoration(
+                                                                  borderRadius:
+                                                                  BorderRadius.circular(
+                                                                      300),
+                                                                  color: Colors.white,
+                                                                  border: const Border(
+                                                                    top: BorderSide(
+                                                                        width: 1,
+                                                                        color:
+                                                                        Color(0xFFDEDEDE)),
+                                                                    bottom: BorderSide(
+                                                                        width: 1,
+                                                                        color:
+                                                                        Color(0xFFDEDEDE)),
+                                                                    right: BorderSide(
+                                                                        width: 1,
+                                                                        color:
+                                                                        Color(0xFFDEDEDE)),
+                                                                    left: BorderSide(
+                                                                        width: 1,
+                                                                        color:
+                                                                        Color(0xFFDEDEDE)),
+                                                                  )),
+                                                              child: const Padding(
+                                                                padding: EdgeInsets.symmetric(
+                                                                    horizontal: 12,
+                                                                    vertical: 6),
+                                                                child: Row(
+                                                                  children: <Widget>[
+                                                                    Icon(
+                                                                      Icons.chat_outlined,
+                                                                      color: Color(0xFF969696),
+                                                                      size: 16,
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          left: 4),
+                                                                      child: Text(
+                                                                        "1",
+                                                                        style: TextStyle(
+                                                                            color: Color(
+                                                                                0xFF969696),
+                                                                            fontSize: 11),
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            )),
+                                                      ),
+                                                      InkWell(
+                                                          child: Container(
+                                                            decoration: BoxDecoration(
+                                                                borderRadius:
+                                                                BorderRadius.circular(300),
+                                                                color: Colors.white,
+                                                                border: const Border(
+                                                                  top: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  bottom: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  right: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  left: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                )),
+                                                            child: const Padding(
+                                                              padding: EdgeInsets.symmetric(
+                                                                  horizontal: 12, vertical: 6),
+                                                              child: Row(
+                                                                children: <Widget>[
+                                                                  Icon(
+                                                                    Icons.bookmark_border,
+                                                                    color: Color(0xFF969696),
+                                                                    size: 16,
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        left: 4),
+                                                                    child: Text(
+                                                                      "12",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                          Color(0xFF969696),
+                                                                          fontSize: 11),
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          )),
+                                                    ],
+                                                  )
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      InkWell(
+                                                          child: Container(
+                                                            decoration: const BoxDecoration(
+                                                                borderRadius: BorderRadius.only(
+                                                                  topLeft: Radius.circular(300),
+                                                                  bottomLeft:
+                                                                  Radius.circular(300),
+                                                                ),
+                                                                color: Colors.white,
+                                                                border: Border(
+                                                                  top: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  bottom: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  left: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                )),
+                                                            child: const Padding(
+                                                              padding: EdgeInsets.symmetric(
+                                                                  horizontal: 12, vertical: 6),
+                                                              child: Row(
+                                                                children: <Widget>[
+                                                                  Icon(
+                                                                    Icons.check,
+                                                                    color: Color(0xFF34BC46),
+                                                                    size: 16,
+                                                                  ),
+                                                                  Text(
+                                                                    "Yes",
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                        Color(0xFF34BC46),
+                                                                        fontSize: 11),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          )),
+                                                      InkWell(
+                                                          child: Container(
+                                                            decoration: const BoxDecoration(
+                                                                borderRadius: BorderRadius.only(
+                                                                  topRight:
+                                                                  Radius.circular(300),
+                                                                  bottomRight:
+                                                                  Radius.circular(300),
+                                                                ),
+                                                                color: Colors.white,
+                                                                border: Border(
+                                                                  top: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  bottom: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                  right: BorderSide(
+                                                                      width: 1,
+                                                                      color: Color(0xFFDEDEDE)),
+                                                                )),
+                                                            child: const Padding(
+                                                              padding: EdgeInsets.symmetric(
+                                                                  horizontal: 12, vertical: 6),
+                                                              child: Row(
+                                                                children: <Widget>[
+                                                                  Icon(
+                                                                    Icons.close_outlined,
+                                                                    color: Color(0xFF969696),
+                                                                    size: 16,
+                                                                  ),
+                                                                  Text(
+                                                                    "No",
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                        Color(0xFF969696),
+                                                                        fontSize: 11),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          )),
+                                                    ],
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "utils/assets/mark-trending.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  )),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 7),
-                            child: InkWell(
-                              child: Image(
-                                  image: AssetImage(
-                                      "utils/assets/mark-trending.png")),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                          ));
+                    },
                   ),
                 ),
                 Padding(

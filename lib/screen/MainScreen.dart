@@ -16,7 +16,7 @@ class _MainPage extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const SafeArea(child: HomeScreen()),
-    const SafeArea(child: ExploreScreen()),
+    SafeArea(child: ExploreScreen()),
     const Text(
       'Index 2: Add',
     ),
@@ -35,7 +35,7 @@ class _MainPage extends State<MainScreen> {
       print(_selectedIndex);
     } else if (index == 2) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => AddScreen()));
+          MaterialPageRoute(builder: (context) => const AddScreen()));
     }
     if (index != 4) {
       setState(() {
@@ -45,7 +45,7 @@ class _MainPage extends State<MainScreen> {
       print(_selectedIndex);
     } else if (index == 4) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => SettingsScreen()));
+          MaterialPageRoute(builder: (context) => const SettingsScreen()));
     }
   }
 

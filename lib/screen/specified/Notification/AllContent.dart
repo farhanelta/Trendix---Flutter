@@ -460,7 +460,7 @@ class AllContent extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 12),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
