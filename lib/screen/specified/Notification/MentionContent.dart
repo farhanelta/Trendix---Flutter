@@ -108,7 +108,7 @@ class MentionContent extends StatelessWidget {
                                         style:
                                             TextStyle(color: Color(0xFF007AFF)),
                                       ),
-                                      Text(" sit sit amet")
+                                      Text(" sit amet")
                                     ],
                                   ),
                                   Row(
@@ -211,7 +211,7 @@ class MentionContent extends StatelessWidget {
                                         style:
                                             TextStyle(color: Color(0xFF007AFF)),
                                       ),
-                                      Text(" sit sit amet")
+                                      Text(" sit amet")
                                     ],
                                   ),
                                   Row(
@@ -326,7 +326,7 @@ class MentionContent extends StatelessWidget {
                                         style:
                                             TextStyle(color: Color(0xFF007AFF)),
                                       ),
-                                      Text(" sit sit amet")
+                                      Text(" sit amet")
                                     ],
                                   ),
                                   Row(
@@ -429,7 +429,7 @@ class MentionContent extends StatelessWidget {
                                         style:
                                             TextStyle(color: Color(0xFF007AFF)),
                                       ),
-                                      Text(" sit sit amet")
+                                      Text(" sit amet")
                                     ],
                                   ),
                                   Row(
@@ -532,7 +532,7 @@ class MentionContent extends StatelessWidget {
                                         style:
                                             TextStyle(color: Color(0xFF007AFF)),
                                       ),
-                                      Text(" sit sit amet")
+                                      Text(" sit amet")
                                     ],
                                   ),
                                   Row(

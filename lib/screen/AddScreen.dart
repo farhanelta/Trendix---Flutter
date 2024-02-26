@@ -11,104 +11,134 @@ class AddScreen extends StatelessWidget {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const MainScreen()));
     }
+
     return Scaffold(
       bottomSheet: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            InkWell(
-              onTap: () => showPopover(
-                  context: context,
-                  bodyBuilder: (context) => Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 10),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Anyone"),
-                                Icon(
-                                  Icons.group_outlined,
-                                  color: Color(0xFF007AFF),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 10),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Following"),
-                                Icon(Icons.check_box_outlined,
-                                    color: Color(0xFF007AFF))
-                              ],
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 10),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Mention"),
-                                Icon(Icons.alternate_email_outlined,
-                                    color: Color(0xFF007AFF))
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                  direction: PopoverDirection.top,
-                  backgroundColor: Colors.white),
-              child: const Row(
-                children: [
-                  Text("Anyone can reply"),
-                  Icon(Icons.keyboard_arrow_down_rounded)
-                ],
+            Container(
+              child: Builder(
+                builder: (context) {
+                  return InkWell(
+                    onTap: () {
+                      showPopover(
+                          context: context,
+                          bodyBuilder: (context) =>
+                              Column(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 10),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        Text("Anyone"),
+                                        Icon(
+                                          Icons.group_outlined,
+                                          color: Color(0xFF007AFF),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 10),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        Text("Following"),
+                                        Icon(Icons.check_box_outlined,
+                                            color: Color(0xFF007AFF))
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 10),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        Text("Mention"),
+                                        Icon(Icons.alternate_email_outlined,
+                                            color: Color(0xFF007AFF))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          direction: PopoverDirection.top,
+                          width: 200,
+                          height: 140,
+                          backgroundColor: Colors.white);
+                    },
+                    child: const Row(
+                      children: [
+                        Text("Anyone can reply"),
+                        Icon(Icons.keyboard_arrow_down_rounded)
+                      ],
+                    ),
+                  );
+                }
               ),
             ),
-            InkWell(
-              onTap: () => showPopover(
-                  context: context,
-                  bodyBuilder: (context) => Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 10),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Photo Library"),
-                                Icon(
-                                  Icons.photo_library_outlined,
-                                  color: Color(0xFF007AFF),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 10),
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("Embed Source"),
-                                Icon(
-                                  Icons.link_rounded,
-                                  color: Color(0xFF007AFF),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                  direction: PopoverDirection.top,
-                  backgroundColor: Colors.white),
-              child: const Icon(Icons.attach_file_rounded),
+            Container(
+              child: Builder(
+                builder: (context) {
+                  return InkWell(
+                    onTap: () {
+                      showPopover(
+                          context: context,
+                          bodyBuilder: (context) =>
+                              Column(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 10),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        Text("Photo Library"),
+                                        Icon(
+                                          Icons.photo_library_outlined,
+                                          color: Color(0xFF007AFF),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 12, vertical: 10),
+                                    child: const Row(
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceBetween,
+                                      children: [
+                                        Text("Embed Source"),
+                                        Icon(Icons.link_rounded,
+                                            color: Color(0xFF007AFF))
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                          direction: PopoverDirection.top,
+                          width: 200,
+                          height: 90,
+                          backgroundColor: Colors.white);
+                    },
+                    child: const Row(
+                      children: [
+                        Icon(Icons.attach_file_rounded),
+                      ],
+                    ),
+                  );
+                }
+              ),
             )
           ],
         ),
@@ -164,7 +194,6 @@ class AddScreen extends StatelessWidget {
                       fillColor: const Color(0xFFF8F9FB),
                       filled: true,
                       enabledBorder: OutlineInputBorder(
-                          // width: 0.0 produces a thin "hairline" border
                           borderSide: BorderSide(
                               color: Colors.black.withOpacity(0.3), width: 0.5),
                           borderRadius: BorderRadius.circular(8)),

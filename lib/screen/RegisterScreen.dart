@@ -1,5 +1,5 @@
+import 'package:Trendix/screen/specified/Register/ImagePicker.dart';
 import 'package:flutter/material.dart';
-import 'MainScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -237,7 +237,7 @@ class _MainPage extends State<RegisterScreen> {
                         onPressed: () {
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) => const MainScreen()));
+                                  builder: (context) => const PickerScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                             minimumSize: const Size(360, 50),

@@ -67,10 +67,13 @@ class _MainPage extends State<HomeScreen> with TickerProviderStateMixin {
           bottom: TabBar(
             controller: _tabController,
             indicatorColor: const Color(0xFF007AFF),
+            indicator: const BoxDecoration(
+              border: Border(bottom: BorderSide(color: Color(0xFF007AFF), width: 2))
+            ),
             labelColor: const Color(0xFF1A1A1A),
-            labelStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            labelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             unselectedLabelColor: const Color(0xFF667084),
-            unselectedLabelStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            unselectedLabelStyle: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
             tabs: const <Widget>[
               SizedBox(
                 width: double.infinity,

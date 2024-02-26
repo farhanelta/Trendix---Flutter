@@ -89,7 +89,7 @@ class RepliesContent extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        "lorem ipsum dolor sit amet lorem ipsum dol...",
+                                        "lorem ipsum dolor sit lorem ipsum dol...",
                                         style: TextStyle(
                                             color: Color(0xFF969696)),
                                       ),
@@ -188,7 +188,7 @@ class RepliesContent extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        "lorem ipsum dolor sit amet lorem ipsum dol...",
+                                        "lorem ipsum dolor sit lorem ipsum dol...",
                                         style: TextStyle(
                                             color: Color(0xFF969696)),
                                       ),
@@ -299,7 +299,7 @@ class RepliesContent extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        "lorem ipsum dolor sit amet lorem ipsum dol...",
+                                        "lorem ipsum dolor sit lorem ipsum dol...",
                                         style: TextStyle(
                                             color: Color(0xFF969696)),
                                       ),
@@ -398,7 +398,7 @@ class RepliesContent extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        "lorem ipsum dolor sit amet lorem ipsum dol...",
+                                        "lorem ipsum dolor sit lorem ipsum dol...",
                                         style: TextStyle(
                                             color: Color(0xFF969696)),
                                       ),
@@ -497,7 +497,7 @@ class RepliesContent extends StatelessWidget {
                                   Row(
                                     children: [
                                       Text(
-                                        "lorem ipsum dolor sit amet lorem ipsum dol...",
+                                        "lorem ipsum dolor sit lorem ipsum dol...",
                                         style: TextStyle(
                                             color: Color(0xFF969696)),
                                       ),

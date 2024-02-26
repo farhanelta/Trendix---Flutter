@@ -16,7 +16,7 @@ class _MainPage extends State<MainScreen> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const SafeArea(child: HomeScreen()),
-    SafeArea(child: ExploreScreen()),
+    const SafeArea(child: ExploreScreen()),
     const Text(
       'Index 2: Add',
     ),

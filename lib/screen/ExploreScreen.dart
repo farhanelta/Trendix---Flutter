@@ -1,3 +1,4 @@
+import 'package:Trendix/screen/specified/Search/SearchContent.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -12,18 +13,24 @@ class _MainPage extends State<ExploreScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void NextScreen() {
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => SearchContent()));
+    }
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
-          title: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              InkWell(
+                onTap: NextScreen,
+                child: SizedBox(
                   height: 35,
-                  width: 320,
+                  width: 280,
                   child: TextFormField(
                     textAlignVertical: TextAlignVertical.bottom,
                     decoration: InputDecoration(
@@ -33,50 +40,49 @@ class _MainPage extends State<ExploreScreen> {
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.circular(10)),
                       hintText: 'Search',
-                      hintStyle: TextStyle(fontSize: 16),
-                      prefixIcon: Icon(Icons.search,
+                      hintStyle: const TextStyle(fontSize: 16),
+                      prefixIcon: const Icon(Icons.search,
                           color: Color(0xFF3C3C43), size: 17),
                       suffixIcon: InkWell(
                         onTap: () {
                           // Handle the microphone icon click
-                          print('Microphone icon clicked');
                         },
-                        child:
-                            Icon(Icons.mic, color: Color(0xFF3C3C43), size: 17),
+                        child: const Icon(Icons.mic,
+                            color: Color(0xFF3C3C43), size: 17),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 36,
-                  height: 38,
-                  child: Stack(children: [
-                    const Positioned(
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image(image: AssetImage("utils/assets/user-pfp.png")),
-                        ],
+              ),
+              SizedBox(
+                width: 36,
+                height: 38,
+                child: Stack(children: [
+                  const Positioned(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image(image: AssetImage("utils/assets/user-pfp.png")),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 22,
+                    top: 26,
+                    child: Container(
+                      width: 12,
+                      height: 12,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFF57BA5D),
+                        shape: CircleBorder(),
                       ),
                     ),
-                    Positioned(
-                      left: 22,
-                      top: 26,
-                      child: Container(
-                        width: 12,
-                        height: 12,
-                        decoration: const ShapeDecoration(
-                          color: Color(0xFF57BA5D),
-                          shape: CircleBorder(),
-                        ),
-                      ),
-                    ),
-                  ]),
-                )
-              ],
-            ),
+                  ),
+                ]),
+              )
+            ],
           ),
         ),
         body: SingleChildScrollView(
@@ -165,7 +171,7 @@ class _MainPage extends State<ExploreScreen> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 350,
                   child: PageView.builder(
                     itemCount: 5,
@@ -175,21 +181,29 @@ class _MainPage extends State<ExploreScreen> {
                       return AnimatedPadding(
                           duration: const Duration(milliseconds: 400),
                           curve: Curves.fastOutSlowIn,
-                          padding: EdgeInsets.all(_index == index ? 0.0 : 8.0),
+                          padding: EdgeInsets.all(_index == index ? 0.0 : 6.0),
                           child: Card(
                             shadowColor: Colors.transparent,
                             color: Colors.transparent,
                             elevation: 4,
                             child: Center(
                               child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                          "utils/assets/mark-trending.png"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                   child: Column(
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
+                                      const Padding(
+                                        padding: EdgeInsets.only(
                                             left: 16,
                                             right: 16,
-                                            top: 16,
-                                            bottom: 85),
+                                            top: 20,
+                                            bottom: 70),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -212,143 +226,202 @@ class _MainPage extends State<ExploreScreen> {
                                             ),
                                             Row(
                                               children: [
-                                                Text("7h Ago", style: TextStyle(color: Colors.white),),
+                                                Text(
+                                                  "7h Ago",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsets.symmetric(
                                                       horizontal: 4),
-                                                  child: Icon(Icons.more_horiz_rounded, color: Colors.white,),
+                                                  child: Icon(
+                                                    Icons.more_horiz_rounded,
+                                                    color: Colors.white,
+                                                  ),
                                                 )
                                               ],
                                             ),
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                                      const Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 16),
                                         child: Column(
                                           children: [
-                                            Text("The Metaverse, Zuckerberg's tech obession, is officially dead. ChatGPT killed it.", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 17),),
+                                            Text(
+                                              "The Metaverse, Zuckerberg's tech obession, is officially dead. ChatGPT killed it.",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontSize: 17),
+                                            ),
                                             Padding(
-                                              padding: const EdgeInsets.only(top: 8),
-                                              child: Text("The Metaverse, the once-buzzy technology that promised to allow users to hang out awkwardly in a disorientati...", style: TextStyle(color: Colors.white, fontSize: 15),),
+                                              padding: EdgeInsets.only(top: 8),
+                                              child: Text(
+                                                "The Metaverse, the once-buzzy technology that promised to allow users to hang out awkwardly in a disorientati...",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 15),
+                                              ),
                                             )
                                           ],
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16),
                                         child: Padding(
-                                          padding: const EdgeInsets.only(top: 16),
+                                          padding:
+                                              const EdgeInsets.only(top: 16),
                                           child: Row(
                                             mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Row(
                                                 mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   Row(
                                                     children: [
                                                       Padding(
-                                                        padding: const EdgeInsets.only(
-                                                            right: 4 * 100 / 100),
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(
+                                                                right: 4 *
+                                                                    100 /
+                                                                    100),
                                                         child: InkWell(
                                                             child: Container(
-                                                              decoration: BoxDecoration(
+                                                          decoration:
+                                                              BoxDecoration(
                                                                   borderRadius:
-                                                                  BorderRadius.circular(
-                                                                      300),
-                                                                  color: Colors.white,
-                                                                  border: const Border(
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              300),
+                                                                  color: Colors
+                                                                      .white,
+                                                                  border:
+                                                                      const Border(
                                                                     top: BorderSide(
-                                                                        width: 1,
-                                                                        color:
-                                                                        Color(0xFFDEDEDE)),
+                                                                        width:
+                                                                            1,
+                                                                        color: Color(
+                                                                            0xFFDEDEDE)),
                                                                     bottom: BorderSide(
-                                                                        width: 1,
-                                                                        color:
-                                                                        Color(0xFFDEDEDE)),
+                                                                        width:
+                                                                            1,
+                                                                        color: Color(
+                                                                            0xFFDEDEDE)),
                                                                     right: BorderSide(
-                                                                        width: 1,
-                                                                        color:
-                                                                        Color(0xFFDEDEDE)),
+                                                                        width:
+                                                                            1,
+                                                                        color: Color(
+                                                                            0xFFDEDEDE)),
                                                                     left: BorderSide(
-                                                                        width: 1,
-                                                                        color:
-                                                                        Color(0xFFDEDEDE)),
+                                                                        width:
+                                                                            1,
+                                                                        color: Color(
+                                                                            0xFFDEDEDE)),
                                                                   )),
-                                                              child: const Padding(
-                                                                padding: EdgeInsets.symmetric(
-                                                                    horizontal: 12,
-                                                                    vertical: 6),
-                                                                child: Row(
-                                                                  children: <Widget>[
-                                                                    Icon(
-                                                                      Icons.chat_outlined,
-                                                                      color: Color(0xFF969696),
-                                                                      size: 16,
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsets.only(
-                                                                          left: 4),
-                                                                      child: Text(
-                                                                        "1",
-                                                                        style: TextStyle(
-                                                                            color: Color(
-                                                                                0xFF969696),
-                                                                            fontSize: 11),
-                                                                      ),
-                                                                    )
-                                                                  ],
+                                                          child: const Padding(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        12,
+                                                                    vertical:
+                                                                        6),
+                                                            child: Row(
+                                                              children: <Widget>[
+                                                                Icon(
+                                                                  Icons
+                                                                      .chat_outlined,
+                                                                  color: Color(
+                                                                      0xFF969696),
+                                                                  size: 16,
                                                                 ),
-                                                              ),
-                                                            )),
+                                                                Padding(
+                                                                  padding: EdgeInsets
+                                                                      .only(
+                                                                          left:
+                                                                              4),
+                                                                  child: Text(
+                                                                    "1",
+                                                                    style: TextStyle(
+                                                                        color: Color(
+                                                                            0xFF969696),
+                                                                        fontSize:
+                                                                            11),
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        )),
                                                       ),
                                                       InkWell(
                                                           child: Container(
-                                                            decoration: BoxDecoration(
+                                                        decoration:
+                                                            BoxDecoration(
                                                                 borderRadius:
-                                                                BorderRadius.circular(300),
-                                                                color: Colors.white,
-                                                                border: const Border(
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            300),
+                                                                color: Colors
+                                                                    .white,
+                                                                border:
+                                                                    const Border(
                                                                   top: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   bottom: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   right: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   left: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                 )),
-                                                            child: const Padding(
-                                                              padding: EdgeInsets.symmetric(
-                                                                  horizontal: 12, vertical: 6),
-                                                              child: Row(
-                                                                children: <Widget>[
-                                                                  Icon(
-                                                                    Icons.bookmark_border,
-                                                                    color: Color(0xFF969696),
-                                                                    size: 16,
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsets.only(
-                                                                        left: 4),
-                                                                    child: Text(
-                                                                      "12",
-                                                                      style: TextStyle(
-                                                                          color:
-                                                                          Color(0xFF969696),
-                                                                          fontSize: 11),
-                                                                    ),
-                                                                  )
-                                                                ],
+                                                        child: const Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      12,
+                                                                  vertical: 6),
+                                                          child: Row(
+                                                            children: <Widget>[
+                                                              Icon(
+                                                                Icons
+                                                                    .bookmark_border,
+                                                                color: Color(
+                                                                    0xFF969696),
+                                                                size: 16,
                                                               ),
-                                                            ),
-                                                          )),
+                                                              Padding(
+                                                                padding: EdgeInsets
+                                                                    .only(
+                                                                        left:
+                                                                            4),
+                                                                child: Text(
+                                                                  "12",
+                                                                  style: TextStyle(
+                                                                      color: Color(
+                                                                          0xFF969696),
+                                                                      fontSize:
+                                                                          11),
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      )),
                                                     ],
                                                   )
                                                 ],
@@ -359,87 +432,117 @@ class _MainPage extends State<ExploreScreen> {
                                                     children: [
                                                       InkWell(
                                                           child: Container(
-                                                            decoration: const BoxDecoration(
-                                                                borderRadius: BorderRadius.only(
-                                                                  topLeft: Radius.circular(300),
-                                                                  bottomLeft:
-                                                                  Radius.circular(300),
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          300),
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          300),
                                                                 ),
-                                                                color: Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 border: Border(
                                                                   top: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   bottom: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   left: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                 )),
-                                                            child: const Padding(
-                                                              padding: EdgeInsets.symmetric(
-                                                                  horizontal: 12, vertical: 6),
-                                                              child: Row(
-                                                                children: <Widget>[
-                                                                  Icon(
-                                                                    Icons.check,
-                                                                    color: Color(0xFF34BC46),
-                                                                    size: 16,
-                                                                  ),
-                                                                  Text(
-                                                                    "Yes",
-                                                                    style: TextStyle(
-                                                                        color:
-                                                                        Color(0xFF34BC46),
-                                                                        fontSize: 11),
-                                                                  )
-                                                                ],
+                                                        child: const Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      12,
+                                                                  vertical: 6),
+                                                          child: Row(
+                                                            children: <Widget>[
+                                                              Icon(
+                                                                Icons.check,
+                                                                color: Color(
+                                                                    0xFF34BC46),
+                                                                size: 16,
                                                               ),
-                                                            ),
-                                                          )),
+                                                              Text(
+                                                                "Yes",
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xFF34BC46),
+                                                                    fontSize:
+                                                                        11),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      )),
                                                       InkWell(
                                                           child: Container(
-                                                            decoration: const BoxDecoration(
-                                                                borderRadius: BorderRadius.only(
-                                                                  topRight:
-                                                                  Radius.circular(300),
-                                                                  bottomRight:
-                                                                  Radius.circular(300),
+                                                        decoration:
+                                                            const BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          300),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          300),
                                                                 ),
-                                                                color: Colors.white,
+                                                                color: Colors
+                                                                    .white,
                                                                 border: Border(
                                                                   top: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   bottom: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                   right: BorderSide(
                                                                       width: 1,
-                                                                      color: Color(0xFFDEDEDE)),
+                                                                      color: Color(
+                                                                          0xFFDEDEDE)),
                                                                 )),
-                                                            child: const Padding(
-                                                              padding: EdgeInsets.symmetric(
-                                                                  horizontal: 12, vertical: 6),
-                                                              child: Row(
-                                                                children: <Widget>[
-                                                                  Icon(
-                                                                    Icons.close_outlined,
-                                                                    color: Color(0xFF969696),
-                                                                    size: 16,
-                                                                  ),
-                                                                  Text(
-                                                                    "No",
-                                                                    style: TextStyle(
-                                                                        color:
-                                                                        Color(0xFF969696),
-                                                                        fontSize: 11),
-                                                                  )
-                                                                ],
+                                                        child: const Padding(
+                                                          padding: EdgeInsets
+                                                              .symmetric(
+                                                                  horizontal:
+                                                                      12,
+                                                                  vertical: 6),
+                                                          child: Row(
+                                                            children: <Widget>[
+                                                              Icon(
+                                                                Icons
+                                                                    .close_outlined,
+                                                                color: Color(
+                                                                    0xFF969696),
+                                                                size: 16,
                                                               ),
-                                                            ),
-                                                          )),
+                                                              Text(
+                                                                "No",
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        0xFF969696),
+                                                                    fontSize:
+                                                                        11),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      )),
                                                     ],
                                                   ),
                                                 ],
@@ -449,14 +552,6 @@ class _MainPage extends State<ExploreScreen> {
                                         ),
                                       )
                                     ],
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "utils/assets/mark-trending.png"),
-                                      fit: BoxFit.cover,
-                                    ),
                                   )),
                             ),
                           ));
